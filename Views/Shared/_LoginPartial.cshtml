@@ -18,21 +18,8 @@
 }
 else
 {
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="login-box border-right-1">
-                    <a asp-area="Identity" asp-page="/Account/Login">
-                        <i class="fa fa-key"></i> Login
-                    </a>
-                </div>
-                <div class="login-box border-left-1 border-right-1">
-                    <a asp-area="Identity" asp-page="/Account/Register">
-                        <i class="fa fa-pencil"></i> Sign Up
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+    <ul class="nav navbar-nav navbar-right">
+        <li><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
+        <li><a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+    </ul>
 }
