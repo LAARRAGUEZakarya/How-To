@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Dashboard\" />
+    <Folder Include="wwwroot\login and register\" />
   </ItemGroup>
 
 </Project>

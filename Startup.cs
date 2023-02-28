@@ -27,7 +27,8 @@ namespace How_To
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            services.AddRazorPages();
+            
             services.AddDbContext<How_ToContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("How_ToContextConnection"));
@@ -53,6 +54,7 @@ namespace How_To
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -60,6 +62,7 @@ namespace How_To
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
