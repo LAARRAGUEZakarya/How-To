@@ -18,12 +18,12 @@
     <link rel="stylesheet" href="~/login and register/css/style.css">
 </head>
 <body>
-    <section class="sign-in">
+    <section class="sign-in" style=" margin-top: 90px;">
         <div class="container">
             <div class="signin-content">
                 <div class="signin-image">
                     <figure><img src="~/login and register/images/signin-image.jpg" alt="sing up image"></figure>
-                    <a href="#" class="signup-image-link">Create an account</a>
+                    <a asp-area="Identity" asp-page="/Account/Register" class="signup-image-link">Create an account</a>
                 </div>
 
                 <div class="signin-form">
