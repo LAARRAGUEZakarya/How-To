@@ -1,4 +1,5 @@
 ﻿using System;
+using How_To.Areas.Identity.Data;
 using How_To.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -19,7 +20,17 @@ namespace How_To.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("How_ToContextConnection")));
 
-                services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddDefaultIdentity<HowToUser>(
+                    options => {
+
+                        options.SignIn.RequireConfirmedAccount = false;
+                        options.Password.RequireNonAlphanumeric = false;
+                        options.Password.RequireLowercase = false;
+                        options.Password.RequireUppercase = false;
+                        options.Password.RequiredLength = 1;
+                        options.Password.RequireDigit = false;
+
+                    })
                     .AddEntityFrameworkStores<How_ToContext>();
             });
         }

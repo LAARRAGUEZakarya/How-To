@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using G_Employes.Areas.Identity.Data;
+using How_To.Areas.Identity.Data;
 using How_To.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -19,7 +19,7 @@ namespace How_To.Data
             
         public DbSet<Article> articles { get; set; }
         public DbSet<Category> categories { get; set; }
-        public DbSet<User> users { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
