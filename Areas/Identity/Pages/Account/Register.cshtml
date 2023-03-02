@@ -14,33 +14,42 @@
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="~/login and register/fonts/material-icon/css/material-design-iconic-font.min.css">
-
+    <link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <!-- Main css -->
     <link rel="stylesheet" href="~/login and register/css/style.css">
 </head>
 <body>
-  
-        <section class="signup" style=" margin-top: 90px;">
+ 
+        <section class="signup" style=" margin-top: 40px;">
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Sign up</h2>
-                        <form method="POST" class="register-form" id="register-form">
+                        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <div class="form-group">
-                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="name" id="name" placeholder="Your Name" />
+                                <label asp-for="Input.FirstName"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" asp-for="Input.FirstName" id="name" placeholder="First Name" required />
+                            </div>
+                            
+                            <div class="form-group">
+                                <label asp-for="Input.LastName"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" asp-for="Input.LastName" id="lastname" placeholder="Last Name" required/>
                             </div>
                             <div class="form-group">
-                                <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="Your Email" />
+                                <label asp-for="Input.Email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" asp-for="Input.Email" id="email" placeholder="Your Email" required />
+                                <span asp-validation-for="Input.Email" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="pass" id="pass" placeholder="Password" />
+                                <label asp-for="Input.Password"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" asp-for="Input.Password" id="pass" placeholder="Password" required/>
+                                <span asp-validation-for="Input.Password" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password" />
+                                <label asp-for="Input.ConfirmPassword"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" asp-for="Input.ConfirmPassword" id="re_pass" placeholder="Repeat your password" required/>
+                                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
@@ -59,11 +68,11 @@
             </div>
         </section>
 
-    <!-- JS -->
-    <script src="~/login and register/vendor/jquery/jquery.min.js"></script>
-    <script src="~/login and register/js/main.js"></script>
+              <!-- JS -->
+            <script src="~/login and register/vendor/jquery/jquery.min.js"></script>
+            <script src="~/login and register/js/main.js"></script>
 
-    @section Scripts {
-        <partial name="_ValidationScriptsPartial" />
-    }
+            @section Scripts {
+                <partial name="_ValidationScriptsPartial" />
+            }
 </body>

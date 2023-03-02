@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using How_To.Areas.Identity.Data;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -14,7 +15,7 @@ namespace How_To.Models
         public string Description { get; set; }
         public DateTime Date_of_share { get; set; }
 
-        public User user { get; set; }
+        public HowToUser user { get; set; }
         public Category category { get; set; }
 
         public string Images { get; set; }
